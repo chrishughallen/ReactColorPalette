@@ -29,8 +29,19 @@
 <body>
 
 <header></header>
-	
 <div id="app"></div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,8 +49,6 @@
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-
-
 <script type="text/babel">
 
 
@@ -47,18 +56,23 @@
 let destination = document.querySelector("#app")
 	
 
+
+
+
+
+
 class Card extends React.Component{
 	render(){
+
 		let cardStyle = {
 			height:300,
 			width:200,
-			padding:5,
+			padding:2,
 			margin:10,
-			backgroundColor:this.props.outline,
 			boxShadow:"0px 0px 7px #999",
 			display:"inline-block",
-
 		}
+
 		return(
 			<div {...this.props} style={cardStyle}>
 			<Box {...this.props} />
@@ -67,6 +81,11 @@ class Card extends React.Component{
 		);
 	}
 }
+
+
+
+
+
 
 class Box extends React.Component{
 	render(){
@@ -80,9 +99,16 @@ class Box extends React.Component{
 
 			</div>
 
-			);
+		);
 	}
 }
+
+
+
+
+
+
+
 
 class Caption extends React.Component{
 	render(){
@@ -94,7 +120,8 @@ class Caption extends React.Component{
 
 		}
 		return(
-		<p style={captionStyle}>{this.props.bg}</p>
+		<p style={captionStyle}>{this.props.bg}{this.props.math}</p>
+
 		);
 	}
 }
@@ -102,36 +129,39 @@ class Caption extends React.Component{
 
 ReactDOM.render(
 	<div>
-	<h1>React Color Palette!</h1>
+		<h1>React Random Color Palette</h1>
 	</div>,
-	document.querySelector("header"))
+	document.querySelector("header")
+);
+
+
+
+const getRgb = () =>Math.floor(Math.random()*255)
+
+const getColor = () =>{
+	let color1 = getRgb();
+	let color2 = getRgb();
+	let color3 = getRgb();
+	return "rgb(" + color1 + "," + color2 + "," + color3 + ")"
+}
 
 
 ReactDOM.render(
 	<div>
-		<Card bg="#c0392b" />
-		<Card bg="#3498db" />
-		<Card bg="#f39c12" />
-		<Card bg="#2ecc71" />
-		<Card bg="#8e44ad" />
-		<Card bg="#2c3e50" />
-		<Card bg="#95a5a6" />
-		<Card bg="#f1c40f" />
-		<Card bg="#2980b9" />
-		<Card bg="#e74c3c" />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
+		<Card bg= {getColor()} />
 
 	</div>,
-	destination)
-
-
-
-
-
-
-
-
-
-
+	destination
+);
 
 
 
