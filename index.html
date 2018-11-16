@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React Sandbox</title>
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+	<style>
+
+		body{
+			width:80%;
+			margin:0 auto;
+		}
+
+		header{
+			text-align:center;
+			font-family:Permanent Marker;
+			font-size:20px;
+			margin:0;
+			padding:0;
+		}
+		#app{
+			display:flex;
+			justify-content:center;
+			flex-direction:row;
+			align-content:center;
+		}
+	</style>
+</head>
+<body>
+
+<header></header>
+	
+<div id="app"></div>
+
+
+
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+
+<script type="text/babel">
+
+
+
+let destination = document.querySelector("#app")
+	
+
+class Card extends React.Component{
+	render(){
+		let cardStyle = {
+			height:300,
+			width:200,
+			padding:5,
+			margin:10,
+			backgroundColor:this.props.outline,
+			boxShadow:"0px 0px 7px #999",
+			display:"inline-block",
+
+		}
+		return(
+			<div {...this.props} style={cardStyle}>
+			<Box {...this.props} />
+			<Caption {...this.props} />
+			</div>
+		);
+	}
+}
+
+class Box extends React.Component{
+	render(){
+		let boxStyle = {
+			height:250,
+			backgroundColor:this.props.bg
+		}
+		return(
+			<div style={boxStyle}>
+			
+
+			</div>
+
+			);
+	}
+}
+
+class Caption extends React.Component{
+	render(){
+		let captionStyle = {
+			textAlign:"center",
+			fontSize:20,
+			padding:0,
+			fontFamily:"Permanent Marker"
+
+		}
+		return(
+		<p style={captionStyle}>{this.props.bg}</p>
+		);
+	}
+}
+
+
+ReactDOM.render(
+	<div>
+	<h1>React Color Palette!</h1>
+	</div>,
+	document.querySelector("header"))
+
+
+ReactDOM.render(
+	<div>
+		<Card bg="#c0392b" />
+		<Card bg="#3498db" />
+		<Card bg="#f39c12" />
+		<Card bg="#2ecc71" />
+		<Card bg="#8e44ad" />
+		<Card bg="#2c3e50" />
+		<Card bg="#95a5a6" />
+		<Card bg="#f1c40f" />
+		<Card bg="#2980b9" />
+		<Card bg="#e74c3c" />
+
+	</div>,
+	destination)
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
